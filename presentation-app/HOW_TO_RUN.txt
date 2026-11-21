@@ -1,0 +1,53 @@
+RF SIGNAL CLASSIFICATION - PRESENTATION APP
+===========================================
+
+ONE-TIME SETUP
+  1. Install Python 3.9 or newer from https://www.python.org/downloads/
+     (Windows: tick "Add python.exe to PATH" during installation).
+  2. Unzip RF_Presentation_App.zip anywhere.
+
+START THE APP
+  Mac:      double-click START_APP.command
+            (if macOS blocks it: right-click > Open > Open, or open Terminal,
+             type  bash  and a space, drag the file into the window, press Enter)
+  Windows:  double-click START_APP.bat
+  Manual:   pip install -r requirements.txt   then   streamlit run app.py
+            and open http://localhost:8501 in the browser
+
+  The FIRST start installs packages (1-3 min, needs internet). The first
+  time you open each live-demo page, its model is trained once (Project 1
+  about 1-2 min, Project 2 about 30-60 s, progress bar shown).
+  After that, every start takes a few seconds. Do the first start BEFORE
+  the presentation, at home.
+
+  The app opens in your browser at http://localhost:8501.
+  Keep the black window open while presenting; close it to stop the app.
+
+PAGES (sidebar)
+  Overview                      both projects in one screen
+  Project 1 - Deep learning     results of the MATLAB run, tab by tab
+  Project 2 - Machine learning  results of the MATLAB run, tab by tab
+  Live demo - Project 1         Bluetooth + WiFi spectrogram, every pixel labelled live
+  Live demo - Project 2         build a signal and classify it live
+
+SUGGESTED DEMO FLOW - PROJECT 1 (2 minutes)
+  1. Both, SNR 20/20 dB  -> spectrogram, true and predicted labels side by side.
+  2. Lower Bluetooth SNR to 5 dB -> Bluetooth IoU drops (weak, tiny regions).
+  3. Tick "Let Bluetooth hop onto the WiFi channel" -> the overlap study.
+  4. Batch test, 9 frames -> accuracy, IoU and pixel confusion matrix.
+
+SUGGESTED DEMO FLOW - PROJECT 2 (3-4 minutes)
+  1. WLAN, SNR 15 dB  -> correct, high confidence. Show spectrogram + features.
+  2. Radar            -> correct; point at the chirp lines and chirpLinearityR2.
+  3. Lower SNR to -5 dB -> confidence drops, often wrong: "accuracy vs SNR".
+  4. SNR 15 dB, add 2 interferers, co-channel, SIR 3 dB -> harder.
+  5. LTE              -> often called NR5G: the LTE vs 5G finding of the report.
+  6. Batch test, level 3 vs level 6 -> live accuracy and confusion matrix.
+  Change "Random seed" to get a new random frame with the same settings.
+
+NOTE
+  Both live demos are Python re-implementations with simplified waveforms
+  (correct bandwidth, numerology and timing). Project 1's demo uses a
+  pixel classifier (gradient-boosted trees) instead of the MATLAB deep
+  network, which cannot run in Python. The numbers in the reports and on
+  the results pages are from the MATLAB runs.

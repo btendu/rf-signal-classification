@@ -1,0 +1,48 @@
+PROJECT 2 - HOW TO RUN (desktop MATLAB)
+=======================================
+
+You need: MATLAB R2022a or newer with
+  Statistics and Machine Learning Toolbox   (required - the ML models)
+  Signal Processing Toolbox                 (required)
+  Communications Toolbox                    (required)
+  Bluetooth Toolbox                         (required)
+  WLAN / LTE / 5G / Parallel Computing      (optional - used if present)
+
+1. Unzip RF_ML_Classifier_Project2.zip anywhere, e.g. Documents.
+   Keep it in its OWN folder, separate from the Project 1 folder.
+
+2. Open MATLAB. In the "Current Folder" panel go INTO the folder
+   RF_ML_Classifier_Project2 (you should see RUN_ME.m in the list).
+
+3. FIRST A QUICK TEST (15-30 min):
+   Open RUN_ME.m, change line   MODE = "full";   to   MODE = "quick";
+   Save, then press the green Run button (or type RUN_ME and Enter).
+   Wait for "Send this file: ...Project2_results_to_send.zip".
+   If every step says OK, go on. If something says FAILED, send me
+   Project2_results_to_send.zip.
+
+4. THE REAL RUN (a few hours, leave the computer on, plugged in):
+   Change it back to   MODE = "full";   save, press Run.
+   No figure windows open - every figure is saved in the "results"
+   folder automatically, so the screen may sleep.
+
+5. When it finishes, send me:   Project2_results_to_send.zip
+   (it is in the RF_ML_Classifier_Project2 folder).
+   I write the report from it.
+
+IF THE RUN STOPS HALF WAY
+   Open RUN_FINISH.m, set START_OVERRIDE to the first step that did not
+   finish (shown in results/RESULTS_SUMMARY.txt), press Run.
+   Finished steps and data files are reused.
+
+SDR (ADALM-PLUTO) - optional
+   Without a radio, step 6 just writes a note and is skipped.
+   With a PLUTO: install "Communications Toolbox Support Package for
+   Analog Devices ADALM-Pluto Radio" (Add-Ons), connect TX to RX with a
+   cable and a 30 dB attenuator, then open RUN_FINISH.m, set
+   START_OVERRIDE = 6, press Run. See README.md section 6.
+
+XGBOOST - optional
+   After the full run:   pip install xgboost scikit-learn pandas
+                         python p2_xgboost_optional.py
+   then run RUN_FINISH with START_OVERRIDE = 7 so the result is included.

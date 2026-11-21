@@ -1,0 +1,9 @@
+Copy specSenseTrainedNetResnet18.mat into this folder.
+
+It is the trained network from the MathWorks example
+"Spectrum Sensing with Deep Learning to Identify 5G, LTE, and WLAN Signals".
+Run that example once (it downloads the file), then locate it in MATLAB with
+
+    which specSenseTrainedNetResnet18.mat
+
+See README.md, section 3.
